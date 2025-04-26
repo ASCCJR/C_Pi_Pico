@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "author": "Antonio Sergio Castro de Carvalho Junior",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": 0,
+      "left": 0,
+      "attrs": { "builder": "pico-sdk" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 25.2,
+      "left": -197.8,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 102,
+      "left": -140.2,
+      "attrs": { "color": "green" }
+    },
+    { "type": "wokwi-led", "id": "led3", "top": 63.6, "left": -169, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 15.8,
+      "left": -76.8,
+      "attrs": { "color": "black" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 15.8,
+      "left": 115.2,
+      "attrs": { "color": "green" }
+    },
+    { "type": "wokwi-text", "id": "text1", "top": -9.6, "left": -48, "attrs": { "text": "A" } },
+    { "type": "wokwi-text", "id": "text2", "top": -9.6, "left": 144, "attrs": { "text": "B" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 157.55,
+      "left": -105.6,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 99.95,
+      "left": -105.6,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 80.75,
+      "left": -76.8,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "pico:GND.1", "btn1:1.r", "black", [ "h0" ] ],
+    [ "pico:GP3", "btn1:2.r", "green", [ "h0" ] ],
+    [ "pico:GND.8", "btn2:1.l", "black", [ "h0" ] ],
+    [ "pico:GP28", "btn2:2.l", "green", [ "h0" ] ],
+    [ "pico:GND.4", "led2:C", "black", [ "h0" ] ],
+    [ "pico:GND.4", "led3:C", "black", [ "h0" ] ],
+    [ "pico:GND.4", "led1:C", "black", [ "h0" ] ],
+    [ "pico:GP13", "r1:2", "green", [ "h0" ] ],
+    [ "r1:1", "led2:A", "green", [ "v0" ] ],
+    [ "pico:GP12", "r2:2", "red", [ "h0" ] ],
+    [ "r2:1", "led3:A", "red", [ "v0" ] ],
+    [ "pico:GP11", "r3:2", "blue", [ "h0" ] ],
+    [ "r3:1", "led1:A", "blue", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
