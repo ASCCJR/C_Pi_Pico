@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "author": "Antonio Sergio Castro de Carvalho Junior",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": 15.95,
+      "left": -34.85,
+      "attrs": { "cyw43": "1", "builder": "pico-sdk" }
+    },
+    { "type": "wokwi-membrane-keypad", "id": "keypad1", "top": -194, "left": -474.4, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -44.05,
+      "left": 19.2,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -24.85,
+      "left": 9.6,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 14.4,
+      "left": -173.35,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "top": -207.2,
+      "left": -152.5,
+      "attrs": { "common": "cathode" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "keypad1:R1", "pico:GP2", "violet", [ "v28.8", "h259.2", "v-124.8" ] ],
+    [ "keypad1:R2", "pico:GP3", "violet", [ "v38.4", "h258.8", "v-115.2" ] ],
+    [ "keypad1:R3", "pico:GP4", "violet", [ "v48", "h258.9", "v-115.2" ] ],
+    [ "keypad1:R4", "pico:GP5", "violet", [ "v57.6", "h259", "v-115.2" ] ],
+    [ "keypad1:C1", "pico:GP6", "white", [ "v67.2", "h259.1", "v-105.6" ] ],
+    [ "keypad1:C2", "pico:GP7", "white", [ "v76.8", "h259.2", "v-105.6" ] ],
+    [ "keypad1:C3", "pico:GP8", "white", [ "v86.4", "h259.05", "v-105.6" ] ],
+    [ "keypad1:C4", "pico:GP9", "white", [ "v96", "h258.9", "v-105.6" ] ],
+    [ "pico:GP26", "r1:2", "green", [ "h0" ] ],
+    [ "pico:GP27", "r2:2", "blue", [ "h0" ] ],
+    [ "r1:1", "rgb1:G", "green", [ "v0", "h-145.3" ] ],
+    [ "pico:GND.1", "rgb1:COM", "black", [ "h-105.6", "v-201.2" ] ],
+    [ "pico:GP28", "r3:2", "red", [ "h0" ] ],
+    [ "r3:1", "rgb1:R", "red", [ "h0" ] ],
+    [ "r2:1", "rgb1:B", "blue", [ "h-124.8", "v-144" ] ]
+  ],
+  "dependencies": {}
+}
